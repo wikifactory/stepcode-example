@@ -65,17 +65,17 @@ If that is the case you should be able to run make in the `stepcode-example` dir
 
 which you can then use to read a step file and write it out again:
 
-    ~/w/s/stepcode-example> ./p21mini silla.step 
+    ~/w/s/stepcode-example> env LD_LIBRARY_PATH="../sc-install/lib:../stepcode/ap242/lib:$LD_LIBRARY_PATH" ./p21mini silla.step 
     Reading Data from /home/rakete/wikifactory/step/stepcode-example/silla.step...
 
     HEADER read:
 
     FIRST PASS complete:  14198 instances created.
-      0  ERRORS	  0  WARNINGS
+        0  ERRORS	  0  WARNINGS
 
 
     SECOND PASS complete:  14198 instances valid.
-      0  ERRORS	  0  WARNINGS
+        0  ERRORS	  0  WARNINGS
 
     Finished reading file.
 
