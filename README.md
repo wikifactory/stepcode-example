@@ -63,9 +63,12 @@ If that is the case you should be able to run make in the `stepcode-example` dir
     cd ../../stepcode-example
     make
 
-which you can then use to read a step file and write it out again:
+which you can then use to read a step file and write it out again by running:
 
-    ~/w/s/stepcode-example> env LD_LIBRARY_PATH="../sc-install/lib:../stepcode/ap242/lib:$LD_LIBRARY_PATH" ./p21mini silla.step 
+    env LD_LIBRARY_PATH="../sc-install/lib:../stepcode/ap242/lib:$LD_LIBRARY_PATH" ./p21mini silla.step
+
+getting output like this:
+
     Reading Data from /home/rakete/wikifactory/step/stepcode-example/silla.step...
 
     HEADER read:
@@ -78,7 +81,5 @@ which you can then use to read a step file and write it out again:
         0  ERRORS	  0  WARNINGS
 
     Finished reading file.
-
-    ~/w/s/stepcode-example>
 
 Interestingly you can not run `./p21mini` on the output again without getting errors. But you can load the outputted file in a step viewer and see that is it indeed a valid step file.
