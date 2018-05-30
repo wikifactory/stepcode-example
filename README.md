@@ -32,7 +32,7 @@ I did the following to build STEPcode:
     cd stepcode/
     mkdir ap242
     cd ap242
-    cmake .. -DSC_BUILD_SCHEMAS=ap242
+    cmake .. -DSC_BUILD_SCHEMAS=ap242 -DHAVE_NULLPTR=0
     make -j4
 
 That should compile several .so libs in `./lib/` and some executables in `./bin/`. But as far as I understand this has only compiled the generic functionality yet, to get the schema specific stuff you have to run:
