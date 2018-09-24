@@ -112,9 +112,13 @@ I am trying to find documentation that helps me understand stepcode:
 - [Recommended Practices for AP 203](https://www.oasis-open.org/committees/download.php/11728/recprac8.pdf)
 - [Usage Guide for the STEP PDM Schema V1.2](https://www.prostep.org/fileadmin/downloads/ProSTEP-iViP_Implementation-Guideline_PDM-Schema_4.3.pdf)
 - [AP 239 Specification](http://www.asd-ssg.org/c/document_library/get_file?uuid=3e01b539-7d77-48dc-a7a5-076511664054&groupId=11317)
+- [Solidworks does not export materials to STEP (contains SLDPRT with materials)](https://forum.solidworks.com/thread/181689)
+- [Solidworks MBD for STEP export with materials](https://www.cati.com/products/technical-communications/solidworks-mbd/)
+- [STEP material property example text](https://www.eng-tips.com/viewthread.cfm?qid=398294)
 
 ## STEP files/viewer
 - [MBE PMI Validation and Conformance Testing Project](https://www.nist.gov/el/systems-integration-division-73400/mbe-pmi-validation-and-conformance-testing-project)
 - [NIST PMI files in STEPtools viewer](https://www.steptools.com/demos/242/index.html)
 - [NIST PMI files on Wikifactory](https://wikifactory.com/@rakete/nist-pmi-test-project)
 - [Generic STEP webviewer](http://step3d.com/)
+- [CAx-IF synthetic STEP examples (contains materials!)](https://www.cax-if.org/library/index.html)
