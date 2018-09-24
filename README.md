@@ -83,3 +83,38 @@ getting output like this:
     Finished reading file.
 
 Interestingly you can not run `./p21mini` on the output again without getting errors. But you can load the outputted file in a step viewer and see that is it indeed a valid step file.
+
+# Documentation
+
+I am trying to find documentation that helps me understand stepcode:
+
+## Overview of stepcode
+- http://stepcode.github.io/docs/home/
+- https://github.com/stepcode/stepcode/wiki/Files-in-SCL
+- [Validation Testing System: Reusable Software Component Design](https://github.com/stepcode/stepcode/blob/master/doc/VTS_-_Reusable_Software_Component_Design_-_morris91.pdf)
+- [Design of a C++ Software Library for Implementing EXPRESS](https://github.com/stepcode/stepcode/blob/master/doc/Design_of_SCL_-_sauder95.pdf)
+- [NIST FASD STEP Class Library Data Structures](https://github.com/stepcode/stepcode/blob/master/doc/sclnotes.pdf)
+
+## Example code using stepcode
+- [Doxygen 0.5 (outdated?)](http://mpictor.github.io/scl/0.5/doc.StepClassLibrary/doxygen-html/index.html)
+- [BRL-CAD](https://github.com/kanzure/brlcad/tree/master/src/conv/step)
+- [OpenVSP](https://github.com/OpenVSP/OpenVSP/blob/f5ced1dfcf40b5cc1964663bf48421dac67eccd4/src/util/STEPutil.cpp)
+- [STEPcode examples](https://github.com/stepcode/stepcode/tree/master/test/cpp/)
+
+## Other code dealing with STEP
+- [OpenCASCADE](https://www.opencascade.com/doc/occt-6.9.0/overview/html/occt_user_guides__step.html)
+- [STEPtools Inc. SDAI C Library Reference Manual](https://dsiva.weebly.com/uploads/5/2/7/8/5278587/sdailib.pdf)
+
+## More on STEP
+- [ISO 10303 on Wikipedia](https://en.wikipedia.org/wiki/ISO_10303)
+- [ISO 10303-21 part 21 files](https://en.wikipedia.org/wiki/ISO_10303-21)
+- [Overview of ISO 10303](https://www.nist.gov/sites/default/files/documents/el/msid/16_aBarnardFeeney.pdf)
+- [Recommended Practices for AP 203](https://www.oasis-open.org/committees/download.php/11728/recprac8.pdf)
+- [Usage Guide for the STEP PDM Schema V1.2](https://www.prostep.org/fileadmin/downloads/ProSTEP-iViP_Implementation-Guideline_PDM-Schema_4.3.pdf)
+- [AP 239 Specification](http://www.asd-ssg.org/c/document_library/get_file?uuid=3e01b539-7d77-48dc-a7a5-076511664054&groupId=11317)
+
+## STEP files/viewer
+- [MBE PMI Validation and Conformance Testing Project](https://www.nist.gov/el/systems-integration-division-73400/mbe-pmi-validation-and-conformance-testing-project)
+- [NIST PMI files in STEPtools viewer](https://www.steptools.com/demos/242/index.html)
+- [NIST PMI files on Wikifactory](https://wikifactory.com/@rakete/nist-pmi-test-project)
+- [Generic STEP webviewer](http://step3d.com/)
