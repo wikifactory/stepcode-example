@@ -18,27 +18,28 @@ extern void SchemaInit( class Registry & );
 int main( int argc, char * argv[] ) {
     // the registry contains information about types present in the current schema; SchemaInit
     // is a function in the schema-specific SDAI library
-    Registry  registry( SchemaInit );
+    Registry  registry(SchemaInit);
     //the InstMgr holds instances that have been created or that have been loaded from a file
-    InstMgr   instance_list;
+    InstMgr instance_list;
+
     // STEPfile takes care of reading and writing Part 21 files
-    STEPfile  sfile( registry, instance_list, "", false );
+    STEPfile sfile(registry, instance_list, "", false);
     // read a file, using the name from the command line
-    sfile.ReadExchangeFile( argv[1] );
+    sfile.ReadExchangeFile(argv[1]);
+
     // check for errors; exit if they are particularly severe
     if( sfile.Error().severity() < SEVERITY_USERMSG ) {
         sfile.Error().PrintContents( cout );
     }
-    if ( sfile.Error().severity() <= SEVERITY_INCOMPLETE ) {
+
+    if( sfile.Error().severity() <= SEVERITY_INCOMPLETE ) {
         exit(1);
     }
-    /**************************************************
-    ** do something with the data here
-    ***************************************************/
+
     // write to "file.out", then check for write errors. The write operation overwrites any
     // errors caused by previous operations.
-    sfile.WriteExchangeFile( "file.out" );
+    sfile.WriteExchangeFile("file.out");
     if( sfile.Error().severity() < SEVERITY_USERMSG ) {
-        sfile.Error().PrintContents( cout );
+        sfile.Error().PrintContents(cout);
     }
 }
