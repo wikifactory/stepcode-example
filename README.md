@@ -115,6 +115,8 @@ I am trying to find documentation that helps me understand stepcode:
 - [Solidworks does not export materials to STEP (contains SLDPRT with materials)](https://forum.solidworks.com/thread/181689)
 - [Solidworks MBD for STEP export with materials](https://www.cati.com/products/technical-communications/solidworks-mbd/)
 - [STEP material property example text](https://www.eng-tips.com/viewthread.cfm?qid=398294)
+- [STEPtools *huge* merged STEP schema (ap242,214,203,238,224,240,242,232)](https://www.steptools.com/stds/stp_aim/html/schema.html)
+- [STEPtools EXPRESS schema archive](https://www.steptools.com/stds/archive/)
 
 ## STEP files/viewer
 - [MBE PMI Validation and Conformance Testing Project](https://www.nist.gov/el/systems-integration-division-73400/mbe-pmi-validation-and-conformance-testing-project)
