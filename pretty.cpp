@@ -30,6 +30,50 @@ bool PrettyWrapper::LoadFile(std::string filename) {
 #define ANSI_RED "\033[1;31m"
 #define ANSI_RESET "\033[0m"
 
+std::string PrettyPrintAttributeType(BASE_TYPE type) {
+    std::string ret = "";
+    switch(type) {
+        case INTEGER_TYPE:
+            ret = "INTEGER_TYPE"; break;
+        case REAL_TYPE:
+            ret = "REAL_TYPE"; break;
+        case BOOLEAN_TYPE:
+            ret = "BOOLEAN_TYPE"; break;
+        case LOGICAL_TYPE:
+            ret = "LOGICAL_TYPE"; break;
+        case STRING_TYPE:
+            ret = "STRING_TYPE"; break;
+        case BINARY_TYPE:
+            ret = "BINARY_TYPE"; break;
+        case ENUM_TYPE:
+            ret = "ENUM_TYPE"; break;
+        case SELECT_TYPE:
+            ret = "SELECT_TYPE"; break;
+        case ENTITY_TYPE:
+            ret = "ENTITY_TYPE"; break;
+        case AGGREGATE_TYPE:
+            ret = "AGGREGATE_TYPE"; break;
+        case NUMBER_TYPE:
+            ret = "NUMBER_TYPE"; break;
+        case ARRAY_TYPE:
+            ret = "ARRAY_TYPE"; break;
+        case BAG_TYPE:
+            ret = "BAG_TYPE"; break;
+        case SET_TYPE:
+            ret = "SET_TYPE"; break;
+        case LIST_TYPE:
+            ret = "LIST_TYPE"; break;
+        case GENERIC_TYPE:
+            ret = "GENERIC_TYPE"; break;
+        case REFERENCE_TYPE:
+            ret = "REFERENCE_TYPE"; break;
+        case UNKNOWN_TYPE:
+            ret = "UNKNOWN_TYPE"; break;
+    }
+
+    return ret;
+}
+
 void PrettyWrapper::PrintFileInfo() {
     std::cout << "Registry::GetEntityCnt: " << this->registry->GetEntityCnt() << std::endl;
     std::cout << "InstMgr::InstanceCount: " << this->instancelist->InstanceCount() << std::endl;
@@ -82,10 +126,43 @@ void PrettyWrapper::PrintFileInfo() {
     std::cout << std::endl;
 }
 
+void PrettyWrapper::PrintAssemblyTree() {
+    MgrNode* node = NULL;
+    SDAI_Application_instance* applicationInstance = NULL;
+    for( int i = 0; i < this->instancelist->InstanceCount(); i++ ) {
+        node = this->instancelist->GetMgrNode(i);
+        applicationInstance = node->GetApplication_instance();
+
+        std::cout << "EntityName: " << applicationInstance->EntityName() << std::endl;
+        std::cout << "StepFileId: " << applicationInstance->StepFileId() << std::endl;
+        std::cout << "Comment: " << applicationInstance->P21Comment() << std::endl;
+
+        const EntityDescriptor* entityDescriptor = applicationInstance->getEDesc();
+        std::cout << "Subtypes: " << entityDescriptor->Subtypes().EntryCount() << std::endl;
+        std::cout << "Supertypes: " << entityDescriptor->Supertypes().EntryCount() << std::endl;
+        std::cout << "ExplicitAttr: " << entityDescriptor->ExplicitAttr().EntryCount() << std::endl;
+        std::cout << "InverseAttr: " << entityDescriptor->InverseAttr().EntryCount() << std::endl;
+
+        int attributeCount = applicationInstance->AttributeCount();
+        std::cout << "AttributeCount: " << attributeCount << std::endl;
+        for( int i = 0; i < attributeCount; i++ ) {
+            STEPattribute* attribute = &applicationInstance->attributes[i];
+            std::cout << "Attribute" << i+1 << ":" << std::endl;
+            std::cout << "\tName: " << attribute->Name() << std::endl;
+            std::cout << "\tNonRefType: " << PrettyPrintAttributeType(attribute->NonRefType()) << std::endl;
+            int refCount = attribute->getRefCount();
+            std::cout << "\tRefCount: " << refCount << std::endl;
+
+        }
+
+        std::cout << std::endl;
+    }
+}
+
 int main(int argc, char* argv[]) {
     PrettyWrapper pretty;
     if( pretty.LoadFile("dm1-id-214.stp") ) {
-        pretty.PrintFileInfo();
+        pretty.PrintAssemblyTree();
         std::cout << "Success!" << std::endl;
     } else {
         std::cout << "Error." << std::endl;

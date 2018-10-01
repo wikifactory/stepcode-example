@@ -11,6 +11,7 @@ FILE_NAME('c:\\users\\ejp\\jt23\\dm1.stp','2009-01-19T16:59:58',('User'),
 FILE_SCHEMA(('AUTOMOTIVE_DESIGN { 1 0 10303 214 1 1 1 1 }'));
 ENDSEC;
 DATA;
+/* Comment */
 #5=APPLICATION_CONTEXT('automotive design');
 #6=APPLICATION_PROTOCOL_DEFINITION('International Standard',
    'automotive_design',2001,#5);

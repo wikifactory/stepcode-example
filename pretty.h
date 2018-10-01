@@ -23,4 +23,5 @@ public:
 
     bool LoadFile(std::string filename);
     void PrintFileInfo();
+    void PrintAssemblyTree();
 };
