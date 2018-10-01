@@ -2,9 +2,9 @@
 
 ## Install Prequisites
 
-This is a minimal C++ example for STEPcode library from here: http://stepcode.github.io/docs/p21_cpp_example/
+This is a bunch of examples for the STEPcode library: http://stepcode.github.io/
 
-I use this project to walk you through the process of compiling the STEPcode library and setting up an environment in which the p21mini.cpp file can be successfully compiled into a binary.
+I use this project to walk you through the process of compiling the STEPcode library and setting up an environment for compiling these examples.
 
 STEPcode is a C++ project which uses cmake as build system, so it is going to be neccessary that you'll have cmake, make and gcc installed on your system so that they can be run from the command line (and git too):
 
@@ -25,13 +25,13 @@ We need a global directory where we'll put this repository and the STEPcode repo
 
 # Build STEPcode
 
-Just following the steps explained on: http://stepcode.github.io/ works almost. We need to specifiy a different schema because `ap214` does not exist anymore in the source tree, instead we'll use `ap242` since that seems to be the one that best fits our use case (there is also a schema named `ap214e3` which I assume would be what we would use if we wanted to build a version for the 214 schema).
+Just following the steps explained on: http://stepcode.github.io/ works almost. We need to specifiy a different schema because `ap214` does not exist anymore in the source tree, instead we'll use `ap242` since that seems to be the one that best fits our use case (there is also a schema named `ap214e3` which I assume would be what we would use if we wanted to build a version for the 214 schema). It is also possble to specify `ALL` as a schema, which should also be the default if nothing is specified.
 
 I did the following to build STEPcode:
 
     cd stepcode/
-    mkdir ap242
-    cd ap242
+    mkdir build
+    cd build
     cmake .. -DSC_BUILD_SCHEMAS="ap242"
     make -j4 all
 
@@ -53,36 +53,19 @@ There are other possible targets that might be useful to know about in the futur
 
 This should now be possible if you have followed the above instructions and ended up with a directory structure similar to mine:
 
-    step/stepcode/ap242/lib
+    step/stepcode/build/lib
     step/sc-install/lib
     step/sc-install/include
     step/stepcode-example
 
-If that is the case you should be able to run make in the `stepcode-example` directory and get an executable `./p21mini` compiled:
+If that is the case you should be able to run make in the `stepcode-example` directory:
 
     cd ../../stepcode-example
     make
 
-which you can then use to read a step file and write it out again by running:
+and then:
 
-    env LD_LIBRARY_PATH="../sc-install/lib:../stepcode/ap242/lib:$LD_LIBRARY_PATH" ./p21mini silla.step
-
-getting output like this:
-
-    Reading Data from /home/rakete/wikifactory/step/stepcode-example/silla.step...
-
-    HEADER read:
-
-    FIRST PASS complete:  14198 instances created.
-        0  ERRORS	  0  WARNINGS
-
-
-    SECOND PASS complete:  14198 instances valid.
-        0  ERRORS	  0  WARNINGS
-
-    Finished reading file.
-
-Interestingly you can not run `./p21mini` on the output again without getting errors. But you can load the outputted file in a step viewer and see that is it indeed a valid step file.
+    env LD_LIBRARY_PATH="../sc-install/lib:../stepcode/build/lib:$LD_LIBRARY_PATH" ./pretty
 
 # Documentation
 

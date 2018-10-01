@@ -1,9 +1,9 @@
 SCINSTALL := "../sc-install/"
 SCHEMABUILD := "../stepcode/build/"
 
-.DEFAULT_GOAL := pretty
+.DEFAULT_GOAL := all
 
-all: clean p21mini p21read ap203min pretty
+all: clean pretty
 
 p21mini: p21mini.cpp
 	g++ -std=c++11 \
@@ -56,7 +56,4 @@ pretty: pretty.cpp
 		-L${SCHEMABUILD}/lib -lsdai_ap242
 
 clean:
-	-rm p21mini
-	-rm p21read
-	-rm ap203min
 	-rm pretty
