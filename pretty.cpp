@@ -137,7 +137,7 @@ void PrettyWrapper::PrintAssemblyTree() {
         std::cout << "StepFileId: " << applicationInstance->StepFileId() << std::endl;
         std::cout << "Comment: " << applicationInstance->P21Comment() << std::endl;
 
-        const EntityDescriptor* entityDescriptor = applicationInstance->getEDesc();
+        const EntityDescriptor* entityDescriptor = applicationInstance->eDesc;
         std::cout << "Subtypes: " << entityDescriptor->Subtypes().EntryCount() << std::endl;
         std::cout << "Supertypes: " << entityDescriptor->Supertypes().EntryCount() << std::endl;
         std::cout << "ExplicitAttr: " << entityDescriptor->ExplicitAttr().EntryCount() << std::endl;
